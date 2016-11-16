@@ -38,7 +38,7 @@ You cannot observe an Inline blot by just typing at this point since it does not
 
 Since `<p><span>Text</span></p>` and `<p>Text</p>` represent the same content, the former is invalid and it is part of Quill's optimization process to unwrap the `<span>`. Similarly, once we add formatting, `<p><em>Te</em><em>st</em></p>` and `<p><em><em>Test</em></em></p>` are also invalid, as they are not the most compact representation.
 
-Because of these contraints, **Quill cannot support arbitrary DOM trees and HTML changes**. But as we will see, the consistency and predicability this structure provides enables us to easily build rich editing experiences.
+Because of these constraints, **Quill cannot support arbitrary DOM trees and HTML changes**. But as we will see, the consistency and predicability this structure provides enables us to easily build rich editing experiences.
 
 
 ### Basic Formatting
@@ -76,7 +76,7 @@ quill.formatText(0, 4, 'italic', true);
 // quill.formatText(0, 4, 'myitalic', true);
 ```
 
-Let's get rid of our dummy button handler and hook up the bold and italic buttons to Quill's [`format()`](/docs/api/#format). We will hardcode `true` to always add formatting for simplicity. In your application, you will can use [`getFormat()`](/docs/api/#getformat) to retrieve the current formatting over a arbitrary range to decide whether to add or remove a format. The [Toolbar](/docs/modules/toolbar/) module implements this for Quill, and we will not reimplement it here.
+Let's get rid of our dummy button handler and hook up the bold and italic buttons to Quill's [`format()`](/docs/api/#format). We will hardcode `true` to always add formatting for simplicity. In your application, you can use [`getFormat()`](/docs/api/#getformat) to retrieve the current formatting over a arbitrary range to decide whether to add or remove a format. The [Toolbar](/docs/modules/toolbar/) module implements this for Quill, and we will not reimplement it here.
 
 Open your developer console and try out Quill's [APIs](/docs/api/) on your new bold and italic formats! Make sure to set the context to the correct CodePen iframe to be able to access the `quill` variable in the demo.
 
@@ -166,7 +166,7 @@ DividerBlot.blotName = 'divider';
 DividerBlot.tagName = 'hr';
 ```
 
-Our click handler calls [`insertEmbed()`](/docs/api/#insertembed), which does not as convienently determine, save, and restore the user selection for us like [`format()`](/docs/api/#format) does, so we have to do a little more work to preserve selection ourselves. In addition, when we try to insert a BlockEmbed in the middle of the Block, Quill splits the Block for us. To make this behavior more clear, we will explicitly split the block oursevles by inserting a newline before inserting the divider. Take a look at the Babel tab in the CodePen for specifics.
+Our click handler calls [`insertEmbed()`](/docs/api/#insertembed), which does not as convienently determine, save, and restore the user selection for us like [`format()`](/docs/api/#format) does, so we have to do a little more work to preserve selection ourselves. In addition, when we try to insert a BlockEmbed in the middle of the Block, Quill splits the Block for us. To make this behavior more clear, we will explicitly split the block ourselves by inserting a newline before inserting the divider. Take a look at the Babel tab in the CodePen for specifics.
 
 <div data-height="400" data-theme-id="23269" data-slug-hash="QEPLrv" data-default-tab="result" data-embed-version="2" class="codepen"></div>
 
